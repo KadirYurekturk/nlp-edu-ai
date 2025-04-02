@@ -66,7 +66,7 @@
     <h1>Türkçe NLP ve Eğitim Teknolojileri Konferansı</h1>
     <p>Lütfen aşağıdaki formu doldurarak konuşmacı olarak ön kayıt yaptırınız.</p>
   
-    <form onsubmit="saveToLocalStorage();">
+    <form onsubmit="return saveToLocalStorage(event);">
       <label for="name">Ad Soyad:</label>
       <input type="text" id="name" name="name" required autocomplete="name">
   
@@ -81,6 +81,7 @@
   
     <script>
       function saveToLocalStorage() {
+        event.preventDefault();
         localStorage.setItem('name', document.getElementById('name').value);
         localStorage.setItem('email', document.getElementById('email').value);
         localStorage.setItem('project', document.getElementById('project').value);

@@ -18,13 +18,17 @@
       margin-bottom: 20px;
     }
 
-    p {
+    p, ul {
       font-size: 18px;
       max-width: 600px;
       margin: 0 auto 20px;
     }
 
-    a {
+    ul {
+      text-align: left;
+    }
+
+    a.button {
       display: inline-block;
       margin-top: 30px;
       padding: 10px 20px;
@@ -34,27 +38,46 @@
       border-radius: 4px;
     }
 
-    a:hover {
+    a.button:hover {
       background-color: #163f5a;
+    }
+
+    .warning {
+      color: red;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-    <h1>Başvurunuz için teşekkür ederiz!</h1>
-    <p>Aşağıda başvuru bilgileriniz yer almaktadır:</p>
-  
-    <ul>
-      <li><strong>Ad Soyad:</strong> <span id="name"></span></li>
-      <li><strong>E-posta:</strong> <span id="email"></span></li>
-      <li><strong>Proje:</strong> <span id="project"></span></li>
-    </ul>
-  
-    <a href="index.html">Ana sayfaya dön</a>
-  
-    <script>
-      document.getElementById("name").innerText = localStorage.getItem("name");
-      document.getElementById("email").innerText = localStorage.getItem("email");
-      document.getElementById("project").innerText = localStorage.getItem("project");
-    </script>
-  </body>
+  <div id="content">
+    <!-- JavaScript ile doldurulacak -->
+  </div>
+
+  <script>
+    const name = localStorage.getItem("name");
+    const email = localStorage.getItem("email");
+    const project = localStorage.getItem("project");
+
+    const contentDiv = document.getElementById("content");
+
+    if (name && email && project) {
+      contentDiv.innerHTML = `
+        <h1>Başvurunuz için teşekkür ederiz!</h1>
+        <p>Aşağıda başvuru bilgileriniz yer almaktadır:</p>
+        <ul>
+          <li><strong>Ad Soyad:</strong> ${name}</li>
+          <li><strong>E-posta:</strong> ${email}</li>
+          <li><strong>Proje:</strong> ${project}</li>
+        </ul>
+        <a class="button" href="index.html">🏠 Ana sayfaya dön</a>
+      `;
+    } else {
+      contentDiv.innerHTML = `
+        <h1>Form verisi bulunamadı</h1>
+        <p class="warning">Bu sayfayı doğrudan açtınız ya da form verisi tarayıcınızdan silinmiş olabilir.</p>
+        <a class="button" href="register.html">📄 Kayıt formuna dön</a>
+      `;
+    }
+  </script>
+</body>
 </html>
