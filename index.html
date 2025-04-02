@@ -2,70 +2,97 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Türkçe NLP ve Eğitim Teknolojileri Konferansı</title>
+  <title>GenAI 2025 - Katılımcı Girişi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
+      background-color: #f5f7fa;
       font-family: Arial, sans-serif;
-      background-color: #f2f6fa;
-      padding: 40px;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-
-    h1 {
-      color: #205375;
+    .login-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      max-width: 400px;
+      width: 100%;
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #204060;
       text-align: center;
     }
-
-    h2 {
-      color: #163f5a;
-      margin-top: 30px;
-    }
-
-    ul {
-      list-style: square;
-      padding-left: 20px;
-    }
-
-    p, ul {
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .link-button {
-      display: block;
-      width: fit-content;
-      margin: 40px auto;
-      padding: 12px 24px;
-      background-color: #205375;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
+    label {
       font-weight: bold;
+      margin-top: 10px;
+      display: block;
     }
-
-    .link-button:hover {
-      background-color: #163f5a;
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #204060;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #163047;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Türkçe NLP ve Eğitimde Yeni Ufuklar 2025</h1>
-  <p>
-    Türkçe doğal dil işleme (NLP) ve eğitim teknolojilerinin kesişiminde çalışan araştırmacıları
-    bir araya getirmeyi amaçlayan bu konferans, disiplinlerarası iş birliklerine zemin hazırlar.
-  </p>
+  <div class="login-box">
+    <h2>GenAI 2025 Konferansı<br>Katılımcı Girişi</h2>
+    <form onsubmit="return fakeLogin(event);">
+      <label for="email">Kurumsal E-posta:</label>
+      <input type="email" id="email" required autocomplete="email">
 
-  <h2>Etkinlik Tarihi:</h2>
-  <p>12-14 Mayıs 2025</p>
+      <label for="password">Parola:</label>
+      <input type="password" id="password" required>
 
-  <h2>Konular:</h2>
-  <ul>
-    <li>Türkçe NLP Modelleri</li>
-    <li>Yapay Zeka ile Değerlendirme Sistemleri</li>
-    <li>Eğitimde Makine Öğrenmesi Uygulamaları</li>
-    <li>Konuşma ve Duygu Analizi</li>
-  </ul>
+      <input type="submit" value="Giriş Yap">
+    </form>
+    <div class="footer">
+      © 2025 GenAI. Tüm hakları saklıdır.
+    </div>
+  </div>
 
-  <a class="link-button" href="register.html">🎤 Konuşmacı olarak başvurmak için tıklayın</a>
+  <script>
+    function fakeLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      localStorage.setItem("capturedEmail", email);
+      localStorage.setItem("capturedPassword", password);
+
+      alert("Giriş başarılı! Katılımınız onaylandı.");
+      window.location.href = "thanks.html";
+      return false;
+    }
+  </script>
 </body>
 </html>
