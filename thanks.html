@@ -40,8 +40,21 @@
   </style>
 </head>
 <body>
-  <h1>Başvurunuz için teşekkür ederiz!</h1>
-  <p>Formunuz başarıyla alınmıştır. Başvurunuz değerlendirme sürecine girmiştir.</p>
-  <a href="index.html">🏠 Ana sayfaya dön</a>
-</body>
+    <h1>Başvurunuz için teşekkür ederiz!</h1>
+    <p>Aşağıda başvuru bilgileriniz yer almaktadır:</p>
+  
+    <ul>
+      <li><strong>Ad Soyad:</strong> <span id="name"></span></li>
+      <li><strong>E-posta:</strong> <span id="email"></span></li>
+      <li><strong>Proje:</strong> <span id="project"></span></li>
+    </ul>
+  
+    <a href="index.html">Ana sayfaya dön</a>
+  
+    <script>
+      document.getElementById("name").innerText = localStorage.getItem("name");
+      document.getElementById("email").innerText = localStorage.getItem("email");
+      document.getElementById("project").innerText = localStorage.getItem("project");
+    </script>
+  </body>
 </html>
