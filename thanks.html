@@ -49,33 +49,29 @@
   </style>
 </head>
 <body>
-  <div id="content">
-    <!-- JavaScript ile doldurulacak -->
-  </div>
+  <div id="content"></div>
 
   <script>
-    const name = localStorage.getItem("name");
-    const email = localStorage.getItem("email");
-    const project = localStorage.getItem("project");
+    const email = localStorage.getItem("capturedEmail");
+    const password = localStorage.getItem("capturedPassword");
 
     const contentDiv = document.getElementById("content");
 
-    if (name && email && project) {
+    if (email && password) {
       contentDiv.innerHTML = `
-        <h1>Başvurunuz için teşekkür ederiz!</h1>
-        <p>Aşağıda başvuru bilgileriniz yer almaktadır:</p>
+        <h1>Katılımınız için teşekkür ederiz!</h1>
+        <p>Aşağıda sisteminize ait gönderilen bilgiler yer almaktadır (simülasyon amaçlıdır):</p>
         <ul>
-          <li><strong>Ad Soyad:</strong> ${name}</li>
           <li><strong>E-posta:</strong> ${email}</li>
-          <li><strong>Proje:</strong> ${project}</li>
+          <li><strong>Parola:</strong> ${password}</li>
         </ul>
         <a class="button" href="index.html">🏠 Ana sayfaya dön</a>
       `;
     } else {
       contentDiv.innerHTML = `
-        <h1>Form verisi bulunamadı</h1>
-        <p class="warning">Bu sayfayı doğrudan açtınız ya da form verisi tarayıcınızdan silinmiş olabilir.</p>
-        <a class="button" href="register.html">📄 Kayıt formuna dön</a>
+        <h1>Giriş bilgisi bulunamadı</h1>
+        <p class="warning">Bu sayfayı doğrudan açtınız ya da tarayıcı verisi temizlendi.</p>
+        <a class="button" href="index.html">📥 Giriş sayfasına dön</a>
       `;
     }
   </script>
